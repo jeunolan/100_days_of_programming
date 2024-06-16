@@ -64,7 +64,8 @@ def cesear_code (text_message, num_shift,cipher_direction)
         num_shift *= -1 #this will make the direction go the opposite direction
     for letter in text_message:
         position = alphabet.index(letter)
-        new_position = alphabet    
+        new_position = alphabet + num_shift
+        cipher_message = alphabet[new_position]
 
     print(f"Here is the {cipher_direction}d result, {cipher_message} ")
 
