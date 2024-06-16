@@ -56,6 +56,19 @@ alphabet= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','
 
 
 #ask for message to encode and number of shifts
+#create a new function that will combine the other two
+
+def cesear_code (text_message, num_shift,cipher_direction)
+    cipher_message = ""
+    if cipther_direction == "decode":
+        num_shift *= -1 #this will make the direction go the opposite direction
+    for letter in text_message:
+        position = alphabet.index(letter)
+        new_position = alphabet    
+
+    print(f"Here is the {cipher_direction}d result, {cipher_message} ")
+
+'''
 def encode (text_message,num_shift):
     cipher_message = ""
     #take text_message paramenter and shit by the number allocated
@@ -74,7 +87,7 @@ def decode(text_message, num_shift):
         new_position = position - num_shift 
         cipher_message += alphabet[new_position]
     print(cipher_message)
-
+'''
 print(logo)
 
 end_of_program = False #initial variable assignment
