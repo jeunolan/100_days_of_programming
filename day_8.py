@@ -13,7 +13,7 @@ Provides a header;
 
 Ask the user if they want to encode or decode.
 '''
-hello
+#hello
 
 '''
 Encode function change message by shifting the alphabet letters over by the number requested 
@@ -50,17 +50,30 @@ a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8
               88           
 """
 
+alphabet= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',]
+
+
+
 
 #ask for message to encode and number of shifts
-def encode ():
-    message = input("What is your message. \t")
-    num_shift = int(input("Type the shift number."))
-
+def encode (text_message,num_shift):
+    cipher_message = ""
+    #take text_message paramenter and shit by the number allocated
+    #in num_shift
+    for letter in text_message:
+        position = alphabet.index(letter)
+        new_position = position+num_shift
+        cipher_message += alphabet[new_position]
+    print(cipher_message)
 
 #ask for the message to decode and number of shifts
-def decode():
-    message = input("What is your message. \t")
-    num_shift = int(input("Type the shift number."))
+def decode(text_message, num_shift):
+    cipher_message = ""
+    for letter in text_message:
+        position = alphabet.index(letter)
+        new_position = position - num_shift 
+        cipher_message += alphabet[new_position]
+    print(cipher_message)
 
 print(logo)
 
@@ -70,11 +83,13 @@ end_of_program = False #initial variable assignment
 #continue program until the player chooses the no option
 while end_of_program == False:
     choice = input("Type 'encode' to encrypt, 'decode' to decrypt\n").lower()
+    message = input("Type your message:\n")
+    shift =int(input("Type the shift number:\n"))    
    #based upon choice call corresponding function 
     if choice == "encode":
-        encode()
+        encode(message,shift)
     else:
-        decode()
+        decode(message,shift)
     continue_choice = input("Type 'yes' if you want to go again. Otherwise type 'no'")
     if continue_choice == 'yes':
         continue
